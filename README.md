@@ -13,6 +13,7 @@ You're going to finish my partially made Todo Angular App!
   - `rake db:create` (in order to make a local DB)
   - `rake db:migrate` (in order to have the same tables)
   - `rake db:seed` (in order to start with some dummy values)
+3. Then run `rails s` and navigate to `http://localhost:3000` to see the application.
 
 ## Then
 
