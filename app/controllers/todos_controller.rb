@@ -2,7 +2,7 @@ class TodosController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    @todos = Todo.all
+    @todos = Todo.all.order(:id)
   end
 
   def create
@@ -11,7 +11,11 @@ class TodosController < ApplicationController
     if @todo.save
 
     else
-
+      render json: {
+        error: {
+          message: @todo.errors.full_messages.to_sentence
+        }
+      }
     end
 
     # this should read in the params submitted, and
@@ -23,6 +27,20 @@ class TodosController < ApplicationController
   end
 
   def update
+    @todo = Todo.find(params[:id])
+
+
+
+    if @todo.update(todo_params)
+
+    else
+      render json: {
+        error: {
+          message: @todo.errors.full_messages.to_sentence
+        }
+      }
+    end
+
     # this should update an existing todo
     # so you'll first need to load the todo by id,
     # then call update
@@ -35,6 +53,9 @@ class TodosController < ApplicationController
   end
 
   def destroy
+    @todo = Todo.find(params[:id])
+
+    @todo.destroy
     # this should destroy an existing todo
     # then call destroy
     # this will error out if there's a bad id (the todo has
@@ -48,6 +69,6 @@ class TodosController < ApplicationController
   private
 
   def todo_params
-    params.require(:todo).permit(:descripton, :done)
+    params.require(:todo).permit(:description, :done)
   end
 end

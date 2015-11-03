@@ -17,14 +17,45 @@ app.controller('TodoController', ['$http', function ($http) {
       }, function (error) {
         console.log(error);
       });
-  }
+  };
 
-  /*
-    Missing functions:
-      - this.createTodo  -> POST   to /todos
-      - this.updateTodo  -> POST   to /todos/:id
-      - this.destroyTodo -> DELETE to /todos/:id
-  */
+  this.createTodo = function () {
+    $http.post('/todos', {
+      todo: {
+        description: _this.newTodo.description,
+        done: false
+      }
+    }).then(function (response) {
+      var todo = response.data;
+      _this.todos.push(todo);
+      _this.newTodo = {};
+    }, function (error) {
+
+    });
+  };
+
+  this.updateTodo = function (todo) {
+      $http.patch('/todos/' + todo.id, {
+        todo: {
+          done: !todo.done
+        }
+      }).then(function (response) {
+        var index = _this.todos.indexOf(todo);
+        _this.todos[index].done = response.data.done;
+      }, function (error) {
+
+      });
+  };
+
+  this.destroyTodo = function (todo) {
+    $http.delete('/todos/' + todo.id)
+      .then(function (response) {
+        var index = _this.todos.indexOf(todo);
+        _this.todos.splice(index, 1);
+      }, function (error) {
+
+      });
+  };
 
   // Finally, the controller starts with the current todos prefetched
   this.getTodos();

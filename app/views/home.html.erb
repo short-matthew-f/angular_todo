@@ -3,9 +3,18 @@
 
   <h3>Current Todos</h3>
   <ul class="todos">
-    <li ng-repeat="todo in ctrl.todos"
-        ng-class="todo.done ? 'done' : 'undone'">
-      {{ todo.description }}
+    <li ng-repeat="todo in ctrl.todos">
+      <button ng-click="ctrl.updateTodo(todo)">
+        {{ todo.done ? 'undo' : 'done' }}
+      </button>
+      <button ng-click="ctrl.destroyTodo(todo)">
+        Remove todo!
+      </button>
+      <span ng-class="todo.done ? 'done' : 'undone'">
+        {{ todo.description }}
+      </span>
+
+
       <!--
         Missing here:
         - button to mark it as done, which will call to update
@@ -14,12 +23,12 @@
     </li>
   </ul>
 
-  <!--
-    Missing here:
-    - a form to make new todos
-    - should trigger an ng-submit
-    - should have data bound to ctrl.newTodo object
-    - should not ask if it's done (why would you add a finished todo?)
-    -->
+  <hr/>
+
+  <form ng-submit="ctrl.createTodo()">
+    <input type="text" placeholder="next todo!"
+      ng-model="ctrl.newTodo.description">
+    <input type="submit">
+  </form>
 
 </main>
