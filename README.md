@@ -19,6 +19,7 @@ You're going to finish my partially made Todo Angular App!
 
 Peek around:
 
+0. My migration ('/db/migrate/20151103152701_create_todos.rb') has the structure of todos.
 1. My `app.js` (with code for the angular app) is located at `/public/lib/app.js`
 2. Look at `routes.rb` (`/config/routes.rb`) to see the routes I've defined
 3. Look at `application_controller.rb` (`/app/controllers/application_controller.rb`) to see the custom `home` route, which uses a different `layout` that normal
