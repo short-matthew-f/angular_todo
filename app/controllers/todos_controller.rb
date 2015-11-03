@@ -6,6 +6,14 @@ class TodosController < ApplicationController
   end
 
   def create
+    @todo = Todo.new(todo_params)
+
+    if @todo.save
+
+    else
+
+    end
+
     # this should read in the params submitted, and
     # make a new todo.
     # it will return either an error object, or the new
@@ -40,5 +48,6 @@ class TodosController < ApplicationController
   private
 
   def todo_params
+    params.require(:todo).permit(:descripton, :done)
   end
 end
