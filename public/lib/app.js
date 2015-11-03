@@ -22,7 +22,7 @@ app.controller('TodoController', ['$http', function ($http) {
   /*
     Missing functions:
       - this.createTodo  -> POST   to /todos
-      - this.updateTodo  -> POST   to /todos/:id
+      - this.updateTodo  -> PATCH  to /todos/:id
       - this.destroyTodo -> DELETE to /todos/:id
   */
 
