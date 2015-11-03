@@ -3,9 +3,10 @@
 
   <h3>Current Todos</h3>
   <ul class="todos">
-    <li ng-repeat="todo in ctrl.todos"
-        ng-class="todo.done ? 'done' : 'undone'">
-      {{ todo.description }}
+    <li ng-repeat="todo in ctrl.todos">
+      <span ng-class="todo.done ? 'done' : 'undone'">
+        {{ todo.description }}
+      </span>
       <!--
         Missing here:
         - button to mark it as done, which will call to update
@@ -13,6 +14,18 @@
         -->
     </li>
   </ul>
+
+
+    <li ng-repeat="todo in ctrl.todos">
+      <button ng-click="ctrl.updateTodo(todo)">
+        {{ todo.done ? 'undo' : 'done' }}
+      </button>
+      <button ng-click="ctrl.destroyTodo(todo)">
+        Remove todo!
+      </button>
+      <span ng-class="todo.done ? 'done' : 'undone'">
+        {{ todo.description }}
+      </span>
 
   <!--
     Missing here:
