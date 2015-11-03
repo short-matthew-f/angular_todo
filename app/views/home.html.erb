@@ -1,0 +1,25 @@
+<main ng-app="TodoApp"
+      ng-controller="TodoController as ctrl">
+
+  <h3>Current Todos</h3>
+  <ul class="todos">
+    <li ng-repeat="todo in ctrl.todos"
+        ng-class="todo.done ? 'done' : 'undone'">
+      {{ todo.description }}
+      <!--
+        Missing here:
+        - button to mark it as done, which will call to update
+        - button to remove todo from list, which will call to destroy
+        -->
+    </li>
+  </ul>
+
+  <!--
+    Missing here:
+    - a form to make new todos
+    - should trigger an ng-submit
+    - should have data bound to ctrl.newTodo object
+    - should not ask if it's done (why would you add a finished todo?)
+    -->
+
+</main>
