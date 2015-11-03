@@ -6,8 +6,10 @@ Currently I have finished the main route, which is in `ApplicationController#hom
 
 ## First
 
-1. Clone this repo
-2. Run (from the new folder), in this order:
+1. Clone this repo into your home directory:
+  - `cd ~`
+  - `git clone https://github.com/short-matthew-f/angular_todo.git`
+2. Run (from **inside** the new folder), in this order:
   - `bundle` (in order to get the gems for the cloned app)
   - `rake db:create` (in order to make a local DB)
   - `rake db:migrate` (in order to have the same tables)
