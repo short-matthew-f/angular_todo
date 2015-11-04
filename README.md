@@ -25,7 +25,9 @@ Peek around:
 3. Look at `application_controller.rb` (`/app/controllers/application_controller.rb`) to see the custom `home` route, which uses a different `layout` that normal
 4. Look at `angular.html.erb` (`/app/views/layouts/angular.html.erb`) -- that's the new layout file for the angular portion of the app
 5. Look at `todos_controller.rb` (`/app/controllers/todos_controller.rb`) to see the which actions we wish to expose to angular, descriptions of what's missing, as well as the fact that we're ignoring authenticity tokens for simplicity.
-6. Look at `*.json.jbuilder` (`/app/views/todos/*`), to create the `json` formatting necessary for the angular app.  I've already completed `index.json.jbuilder`.
+6. Look at `*.json.jbuilder` (`/app/views/todos/*`), to create the `json` formatting necessary for the angular app.  I've already completed `index.json.jbuilder`.  
+  Also, `create.json.jbuilder` has "sample code" for you to see the first time you hit the route.  You'll have to clear it out, but it's reminder of the formatting that jbuilder uses.  
+  Also, jbuilder has functionality for **partials**!  Feel free to explore that!
 7. Look at `home.html.erb` (`/app/views/home.html.erb`) for the starter angular DOM code.  I've left some comments about what is missing.
 
 ## Lastly
