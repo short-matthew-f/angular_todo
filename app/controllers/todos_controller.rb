@@ -40,5 +40,7 @@ class TodosController < ApplicationController
   private
 
   def todo_params
+    # this should use strong params to require the :todo key, and only
+    # permit :description and :done
   end
 end
